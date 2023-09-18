@@ -1,0 +1,4 @@
+aws_vpc = vpc-ntier
+vpc_cidr_block = 10.10.0.0/16
+subnet_cidr_range = ["10.10.0.0/24", "10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24", "10.10.4.0/24", "10.10.5.0/24"]
+subnet_name = ["web1", "web2", "app1", "app2", "db1", "db2"]

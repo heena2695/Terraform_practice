@@ -5,11 +5,12 @@ resource "aws_vpc" "ntier" {
   cidr_block = var.vpc_cidr_block
 }
 
-resource "aws_subnet" "web" {
+resource "aws_subnet" "subnet" {
+  count      = length(var.subnet_name)
   vpc_id     = aws_vpc.ntier.id
-  cidr_block = var.subnet_cidr_block
+  cidr_block = var.subnet_cidr_range[count.index]
   tags = {
-    Name = var.subnet_name
+    Name = var.subnet_name[count.index]
   }
   depends_on = [aws_vpc.ntier]
 }
