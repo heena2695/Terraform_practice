@@ -8,7 +8,7 @@ resource "aws_vpc" "ntier" {
 resource "aws_subnet" "subnet" {
   count      = length(var.subnet_name)
   vpc_id     = aws_vpc.ntier.id
-  cidr_block = var.subnet_cidr_range[count.index]
+  cidr_block = format(var.subnet_cidr_range, count.index)
   tags = {
     Name = var.subnet_name[count.index]
   }
